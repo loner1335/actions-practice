@@ -20,7 +20,7 @@ jobs:
           mkdir artifact
           echo `ls -lrth` >> artifact/myartifact2.txt
           echo `hostname` >> artifact/myartifact3.txt
-
+#upload artifactory
       - name: upload single file
         uses: actions/upload-artifact@v7.0.1
         with:
@@ -33,3 +33,20 @@ jobs:
           path: |
             ./myartifact.txt
             artifact/
+#download artifactory
+  job2:
+    name: JOB2
+    runs-on: ubuntu-latest
+    steps:
+      - name: check directory
+        run: |
+          pwd
+          ls -lrth
+      - name: download artifactory
+        uses: actions/download-artifact@v3.1.0
+        with:
+          name: single_file
+      - name: check the artifactory
+        run: ls -lrth
+
+          
