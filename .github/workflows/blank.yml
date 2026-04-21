@@ -17,12 +17,18 @@ jobs:
       - name: running commands
         run: |
           echo `pwd` >> myartifact.txt
-          echo `ls -lrth` >> myartifact.txt
-          echo `hostname` >> myartifact.txt
-          cat myartifact.txt
+          echo `ls -lrth` >> artifact/myartifact2.txt
+          echo `hostname` >> artifact/myartifact3.txt
 
       - name: upload single file
         uses: actions/upload-artifact@v7.0.1
         with:
           name: single_file
           path: ./myartifact.txt
+      - name: upload multiple artifacts
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: directory_artifact
+          path: |
+            ./myartifact.txt
+            artifact/
