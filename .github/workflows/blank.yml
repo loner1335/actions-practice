@@ -43,7 +43,7 @@ jobs:
           pwd
           ls -lrth
       - name: download artifactory
-        uses: actions/download-artifact@v3.1.0
+        uses: actions/download-artifact@v5
         with:
           name: single_file
       - name: check the artifactory
