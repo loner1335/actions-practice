@@ -17,6 +17,7 @@ jobs:
       - name: running commands
         run: |
           echo `pwd` >> myartifact.txt
+          mkdir artifact
           echo `ls -lrth` >> artifact/myartifact2.txt
           echo `hostname` >> artifact/myartifact3.txt
 
